@@ -1,10 +1,8 @@
 #!/bin/bash
 
-file="/home/zecoa/.cache/wal/colors"
 file2="/home/zecoa/.cache/wal/colors-last-8"
 starfile="/home/zecoa/.config/starship.toml"
 
-tail -n 8 "$file" > "$file2"
 
 mapfile -t colors < "$file2"
 
@@ -46,6 +44,7 @@ style = "fg:#1C3A5E bg:${colors[6]}"
 [git_metrics]
 format = "([+\$added](\$added_style))[](\$added_style)"
 added_style = "fg:#1C3A5E bg:${colors[6]}"
+
 EOF
   cat star_tail.tmp
 } > temp && mv temp "$starfile" && rm star_tail.tmp
